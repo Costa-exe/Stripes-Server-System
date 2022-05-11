@@ -1,0 +1,19 @@
+{
+  "name": "server-info",
+  "version": "0.0.0",
+  "description": "Local Server Application for Linux Machines",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Asura-Y/Linux-Universal-Server.git"
+  },
+  "author": "Fabio Cosentino (Developer)",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/Asura-Y/Linux-Universal-Server/issues"
+  },
+  "homepage": "https://github.com/Asura-Y/Linux-Universal-Server#readme"
+}
