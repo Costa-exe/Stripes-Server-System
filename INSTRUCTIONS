@@ -1,0 +1,13 @@
+If you want to change the network parameters:
+    
+    - open "netParams.json";
+    - you can change the ip value (empty by default) or the port (8080 by default). 
+
+To run the application:
+
+    -open the Server folder and run a terminal from there;
+    -type "node index.js".
+
+Requirements:
+
+    -Node JS (to install go to Node official website, there you can find different methods of installation for your device).

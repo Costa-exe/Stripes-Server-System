@@ -1,5 +1,1 @@
-If you want to change the port:
-    
-    - open "port.json".
-    - change only the numeric value of "port", wich is 3000 by default and save.
-    - the server will run on the new port. 
+This is a Node JS local server able to run on any Linux-based device.  
