@@ -9,39 +9,43 @@
         }
     }
 
+    function list (y, z) {
+        y.forEach(child => {
+            if (child.type == "directory") {
+                let subdiv = document.createElement("div");
+                subdiv.setAttribute("id", child.name);
+                let name = document.createTextNode(child.name);
+                let span = document.createElement("span");
+                span.setAttribute("class", child.type); 
+                span.appendChild(name);
+                span.appendChild(document.createElement("br"));
+                subdiv.appendChild(span);
+                z.appendChild(subdiv);
+                list(child.children, subdiv);
+            } else {
+                let name = document.createTextNode(child.name);
+                let link = document.createElement("a");
+                link.setAttribute("href", child.path);
+                link.appendChild(name);
+                link.appendChild(document.createElement("br"));
+                z.appendChild(link);
+            }
+        });
+    }
+
     function fileListing (x) {
         x.forEach(file => {
             if (file.type == "directory") {
+                let div = document.createElement("div");
                 let name = document.createTextNode(file.name);
                 let span = document.createElement("span");
-                span.setAttribute("class", file.type);
+                span.setAttribute("class", file.type); 
                 span.appendChild(name);
                 span.appendChild(document.createElement("br"));
-                container.appendChild(span);
-                function subListing () {
-                    let subdiv = document.createElement("div");
-                    subdiv.setAttribute("class", "sub-dir");
-                    file.children.forEach(child => {
-                        if (child.type == "directory") {
-                            let name = document.createTextNode(child.name);
-                            let span = document.createElement("span");
-                            span.setAttribute("class", child.type);
-                            span.appendChild(name);
-                            span.appendChild(document.createElement("br"));
-                            subdiv.appendChild(span);
-                            subListing();
-                        } else {
-                            let name = document.createTextNode(child.name);
-                            let link = document.createElement("a");
-                            link.setAttribute("href", child.path);
-                            link.appendChild(name);
-                            link.appendChild(document.createElement("br"));
-                            subdiv.appendChild(link);
-                        }
-                    });
-                    container.appendChild(subdiv);
-                }
-                subListing();
+                div.appendChild(span);
+                div.setAttribute("id", file.name);
+                list(file.children, div);
+                container.appendChild(div);
             } else {
                 let name = document.createTextNode(file.name);
                 let link = document.createElement("a");
