@@ -1,0 +1,8 @@
+.folder {
+    display: none;
+    padding-left: 15px;
+}
+
+.foldtitle:hover {
+    color: red;
+}

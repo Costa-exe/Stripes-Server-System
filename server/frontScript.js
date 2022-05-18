@@ -5,7 +5,22 @@
         req.onload = function () {
             const result = JSON.parse(req.responseText);
             fileListing(result);
-            console.log(result);/* da cancellare, serve per vedere il pattern delle chiavi */
+            secondaryLoader();
+        }
+    }
+
+    function secondaryLoader() {
+        const foldernames = document.getElementsByClassName("foldtitle");
+        /* loader folders */
+        for (let i = 0; i < foldernames.length; i++) {
+            foldernames[i].onclick = function () {
+                if (document.getElementById(this.id + "-folder").style.display == 'block') {
+                    document.getElementById(this.id + "-folder").style.display = 'none';
+                } else {
+                    document.getElementById(this.id + "-folder").style.display = 'block';
+                }
+                
+            };
         }
     }
 
@@ -13,15 +28,17 @@
         y.forEach(child => {
             if (child.type == "directory") {
                 let subdiv = document.createElement("div");
-                subdiv.setAttribute("id", child.name);
-                let name = document.createTextNode(child.name);
+                subdiv.setAttribute("id", child.name + "-folder");
+                subdiv.setAttribute("class", "folder");
+                let name = document.createTextNode(" + " + child.name);
                 let span = document.createElement("span");
-                span.setAttribute("class", child.type); 
                 span.appendChild(name);
                 span.appendChild(document.createElement("br"));
-                subdiv.appendChild(span);
-                z.appendChild(subdiv);
+                span.setAttribute("id", child.name);
+                span.setAttribute("class", "foldtitle");
+                z.appendChild(span);
                 list(child.children, subdiv);
+                z.appendChild(subdiv);
             } else {
                 let name = document.createTextNode(child.name);
                 let link = document.createElement("a");
@@ -36,14 +53,16 @@
     function fileListing (x) {
         x.forEach(file => {
             if (file.type == "directory") {
-                let div = document.createElement("div");
-                let name = document.createTextNode(file.name);
                 let span = document.createElement("span");
-                span.setAttribute("class", file.type); 
+                let div = document.createElement("div");
+                let name = document.createTextNode(" + " + file.name);
                 span.appendChild(name);
                 span.appendChild(document.createElement("br"));
-                div.appendChild(span);
-                div.setAttribute("id", file.name);
+                span.setAttribute("id", file.name);
+                span.setAttribute("class", "foldtitle");
+                container.appendChild(span);
+                div.setAttribute("class", "folder");
+                div.setAttribute("id", file.name + "-folder");
                 list(file.children, div);
                 container.appendChild(div);
             } else {
@@ -54,7 +73,7 @@
                 link.appendChild(document.createElement("br"));
                 container.appendChild(link);
             }
-        }); 
+        });
     }
 
     function mainLoader () {
