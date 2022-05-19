@@ -1,8 +1,14 @@
 .folder {
     display: none;
     padding-left: 15px;
+
 }
 
-.foldtitle:hover {
-    color: red;
+.folderico, .folderstatus {
+    height: 15px;
+    width: auto;
+}
+
+.foldtitle {
+    cursor: pointer;
 }

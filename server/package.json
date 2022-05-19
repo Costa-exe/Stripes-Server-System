@@ -1,6 +1,6 @@
 {
   "name": "server-project-NoName",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Local Server Application for Linux Machines",
   "main": "index.js",
   "scripts": {

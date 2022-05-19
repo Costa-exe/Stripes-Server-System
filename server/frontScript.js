@@ -4,74 +4,61 @@
         req.send();
         req.onload = function () {
             const result = JSON.parse(req.responseText);
-            fileListing(result);
+            fileListing(result, container);
             secondaryLoader();
         }
     }
 
     function secondaryLoader() {
         const foldernames = document.getElementsByClassName("foldtitle");
+        const folderstatus = document.getElementsByClassName("folderstatus");
         /* loader folders */
         for (let i = 0; i < foldernames.length; i++) {
             foldernames[i].onclick = function () {
                 if (document.getElementById(this.id + "-folder").style.display == 'block') {
                     document.getElementById(this.id + "-folder").style.display = 'none';
+                    folderstatus[i].src = "./imgs/expand.svg";
                 } else {
                     document.getElementById(this.id + "-folder").style.display = 'block';
+                    folderstatus[i].src = "./imgs/minus.svg";
                 }
                 
             };
         }
     }
 
-    function list (y, z) {
-        y.forEach(child => {
-            if (child.type == "directory") {
-                let subdiv = document.createElement("div");
-                subdiv.setAttribute("id", child.name + "-folder");
-                subdiv.setAttribute("class", "folder");
-                let name = document.createTextNode(" + " + child.name);
-                let span = document.createElement("span");
-                span.appendChild(name);
-                span.appendChild(document.createElement("br"));
-                span.setAttribute("id", child.name);
-                span.setAttribute("class", "foldtitle");
-                z.appendChild(span);
-                list(child.children, subdiv);
-                z.appendChild(subdiv);
-            } else {
-                let name = document.createTextNode(child.name);
-                let link = document.createElement("a");
-                link.setAttribute("href", child.path);
-                link.appendChild(name);
-                link.appendChild(document.createElement("br"));
-                z.appendChild(link);
-            }
-        });
-    }
-
-    function fileListing (x) {
+    function fileListing (x,p) {
         x.forEach(file => {
             if (file.type == "directory") {
                 let span = document.createElement("span");
                 let div = document.createElement("div");
-                let name = document.createTextNode(" + " + file.name);
+                let name = document.createTextNode(file.name);
+                let statusfolder = document.createElement("img");
+                statusfolder.setAttribute("class", "folderstatus");
+                statusfolder.setAttribute("src", "./imgs/expand.svg");
+                let icon = document.createElement("img");
+                icon.setAttribute("class", "folderico");
+                icon.setAttribute("src", "./imgs/folder.svg");
+                span.appendChild(statusfolder);
+                span.appendChild(document.createTextNode(" | "));
+                span.appendChild(icon);
+                span.appendChild(document.createTextNode(" "));
                 span.appendChild(name);
-                span.appendChild(document.createElement("br"));
                 span.setAttribute("id", file.name);
                 span.setAttribute("class", "foldtitle");
-                container.appendChild(span);
+                p.appendChild(span);
+                p.appendChild(document.createElement("br"));
                 div.setAttribute("class", "folder");
                 div.setAttribute("id", file.name + "-folder");
-                list(file.children, div);
-                container.appendChild(div);
+                fileListing(file.children, div);
+                p.appendChild(div);
             } else {
                 let name = document.createTextNode(file.name);
                 let link = document.createElement("a");
                 link.setAttribute("href", file.path);
                 link.appendChild(name);
                 link.appendChild(document.createElement("br"));
-                container.appendChild(link);
+                p.appendChild(link);
             }
         });
     }
