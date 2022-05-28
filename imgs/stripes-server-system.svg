@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="17.177057mm"
+   height="18.93988mm"
+   viewBox="0 0 17.177057 18.93988"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   sodipodi:docname="stripes-server-system.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#999999"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="true"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="3.0289001"
+     inkscape:cx="0"
+     inkscape:cy="17.333025"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Livello 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-78.74093,-119.70282)">
+    <text
+       xml:space="preserve"
+       style="font-size:7.7611px;line-height:1.25;font-family:'Miriam Libre';-inkscape-font-specification:'Miriam Libre';text-align:center;text-anchor:middle;stroke-width:0.264583"
+       x="106.96368"
+       y="84.994408"
+       id="text12072"><tspan
+         sodipodi:role="line"
+         id="tspan12070"
+         style="stroke-width:0.264583"
+         x="106.96368"
+         y="84.994408" /></text>
+    <path
+       id="text33684"
+       style="font-size:22.5778px;line-height:1.25;font-family:Arial;-inkscape-font-specification:Arial;text-align:center;text-anchor:middle;stroke-width:0.999999"
+       d="m 321.4375,460.83789 c -4.11112,0 -7.84787,0.69314 -11.20898,2.08203 -3.36112,1.38889 -5.91602,3.43055 -7.66602,6.125 -1.75,2.66667 -2.625,5.54167 -2.625,8.625 0,2.11406 0.40265,4.07819 1.20703,5.89258 l 6.72852,-4.88281 c -0.0962,-0.49364 -0.14453,-1.00989 -0.14453,-1.55078 0,-2.52778 1.11176,-4.68121 3.33398,-6.45899 2.25,-1.80556 5.82009,-2.70703 10.70898,-2.70703 0.28769,0 0.55692,0.0141 0.83594,0.0215 l 8.125,-5.89649 c -2.79222,-0.83252 -5.89009,-1.25 -9.29492,-1.25 z m 16.10156,4.55273 -6.41211,4.6543 c 0.44974,0.26869 0.88083,0.5541 1.26953,0.875 2.41667,1.97223 3.83334,4.88889 4.25,8.75 l 7.75,-0.58203 c -0.13888,-3.58334 -1.13888,-6.79166 -3,-9.625 -1.03392,-1.57404 -2.32625,-2.92688 -3.85742,-4.07227 z m -25.37695,18.41993 -6.88281,4.99414 c 0.97682,0.78382 2.0791,1.50599 3.32422,2.1582 2.25,1.19445 6.18185,2.47092 11.79296,3.83203 5.61112,1.33334 9.23611,2.3201 10.875,2.95899 2.55556,0.97222 4.38889,2.18055 5.5,3.625 0.0744,0.0949 0.13958,0.19392 0.20899,0.29101 l 6.58984,-4.7832 c -1.69716,-2.45508 -4.27833,-4.48798 -7.75781,-6.0918 -2.44445,-1.11111 -6.95768,-2.40277 -13.54102,-3.875 -4.62071,-1.05728 -7.97275,-2.09349 -10.10937,-3.10937 z m -6.93359,18.85937 -7.625,0.66797 c 0.11111,4.08334 1.22287,7.75 3.33398,11 2.11667,3.18876 5.01046,5.58633 8.67773,7.19727 l 7.55079,-5.48047 c -1.13866,-0.27978 -2.22843,-0.64412 -3.26954,-1.0918 -2.77778,-1.22222 -4.83463,-2.80555 -6.16796,-4.75 -1.30556,-1.97222 -2.13889,-4.48741 -2.5,-7.54297 z m 40.83984,0.64649 -8.10352,5.88281 c -0.2913,0.84171 -0.71462,1.65259 -1.27734,2.42969 -1.13889,1.58333 -2.88889,2.83333 -5.25,3.75 -1.01811,0.39526 -2.10751,0.70095 -3.25977,0.92578 l -10.16992,7.38086 c 1.76513,0.21014 3.64175,0.31836 5.63867,0.31836 4.36112,0 8.27778,-0.79167 11.75,-2.375 3.50001,-1.61112 6.17991,-3.84787 8.04102,-6.70899 1.86111,-2.88889 2.79102,-5.95703 2.79102,-9.20703 0,-0.82366 -0.0532,-1.62182 -0.16016,-2.39648 z"
+       transform="scale(0.26458333)" />
+    <text
+       xml:space="preserve"
+       style="font-size:8.46667px;line-height:1.25;font-family:Arial;-inkscape-font-specification:Arial;text-align:center;text-anchor:middle;stroke-width:0.264583"
+       x="93.948082"
+       y="125.78824"
+       id="text36124"><tspan
+         sodipodi:role="line"
+         id="tspan36122"
+         style="font-size:8.46667px;stroke-width:0.264583"
+         x="93.948082"
+         y="125.78824">3</tspan></text>
+  </g>
+</svg>

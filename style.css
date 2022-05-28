@@ -1,0 +1,251 @@
+html {
+    font-family: 'Roboto', sans-serif;
+}
+
+#footer {
+    z-index: 1;
+    background-color: #ffffff;
+    position: absolute;
+    left: 0;
+    margin-left: 3vw;
+    top: 0;
+    right: 0;
+    margin-top: 75vh;
+    margin-right: 5vh;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #c0bbbb;
+    border-left: 0;
+    border-bottom: 0;
+    border-right: 0;
+    padding: 3px;
+}
+
+#boxes, #removing, #locDel {
+    display: none;
+}
+
+#locDelLabel {
+    min-height: 20px;
+    min-width: 180px;
+    border-style: solid;
+    color: #ffffff;
+    background-color: #c0bbbb;
+    border-radius: 1vh;
+    border-color: #c0bbbb;
+    font-size: 15px;
+    padding: 3px;
+}
+
+.divUpLoc {
+    padding: 5px;
+}
+
+#background-block {
+    display: none;
+    z-index: 4;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000;
+    opacity: 70%;
+}
+
+#contain-form {
+    display: none;
+    z-index: 5;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+#actions {
+    z-index: 3;
+    position: absolute;
+    display: none;
+    left: 0;
+    top: 0;
+    right: 0;
+    margin-top: 50px;
+    justify-content: center;
+}
+
+#close2 {
+    display: none;
+    z-index: 3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: auto;
+    margin-top: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.parafu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px;
+    cursor: pointer;
+    padding-bottom: 3px;
+    border-radius: 50%;
+    background-color: #4856cc;
+    height: 40px;
+    width: 45px;
+}
+
+.parafu:hover {
+    background-color: #c7431a;
+}
+
+.des {
+    margin-left: 5px;
+}
+
+#actionsback {
+    position: fixed;
+    display: none;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000;
+    opacity: 70%;
+}
+
+#post-actions {
+    display: block;
+    position: fixed;
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 1vh;
+}
+
+#uploadWarning, #removeWarning {
+    color: #aca8a8;
+}
+
+#uploading {
+    display: none;
+}
+
+.divUpLocFiles {
+    display: none;
+}
+
+#location-box {
+    height: 25vh;
+    width: 80%;
+    border-style: solid;
+    border-color: #000000;
+    border-width: 3px;
+    border-radius: 1vh;
+    padding: 3px;
+    overflow-y: scroll;
+}
+
+#location-box-father {
+    padding-left: 15%;
+}
+
+#uploading > div {
+    margin-top: 10px;
+}
+
+#header > h1 {
+    font-size: 3vh;
+}
+
+#container {
+    padding-top: 0;
+    padding-bottom: 5vh;
+    padding-left: 45px;
+    height: 70vh;
+    overflow-y: scroll;
+    padding-right: 5vw;
+}
+
+#menuIcon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: auto;
+    margin-top: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.folder {
+    display: none;
+    padding-left: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.file, .foldtitle {
+    border-style: solid;
+    border-color: #c0bbbb;
+    border-right: 0;
+    border-left: 0;
+    border-top: 0;
+    border-width: 1px;
+}
+
+.textfile:hover {
+    color: #c0bbbb;
+}
+
+.path, .sizes {
+    margin-left: 20px;
+    color: #c0bbbb;
+}
+
+#stored1 {
+    color: #c0bbbb;
+}
+
+.textfile {
+    text-decoration: none;
+    color: black;
+}
+
+.folderico, .folderstatus, #closeActions {
+    height: 15px;
+    width: auto;
+}
+
+#upload-icon-root > img, #remove-icon-root > img {
+    height: 25px;
+    width: auto;
+}
+
+#upload-icon-root, #closeActions, #remove-icon-root {
+    cursor: pointer;
+}
+
+.foldtitle, .upLoc, .upLocF {
+    cursor: pointer;
+}
+
+#typerem {
+    display: none;
+}
+
+.upLoc:hover, .upLocF:hover {
+    color: #ffffff;
+    background-color: #aca8a8;
+}
+
+.upLoc:active, .upLocF:active {
+    background-color: #c0bbbb;
+}

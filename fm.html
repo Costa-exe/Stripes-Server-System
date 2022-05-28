@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stripes Server System</title>
+    <script src="./frontScript.js"></script>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="./imgs/stripes-server-system.svg">
+</head>
+<body>
+    <div id="background-block">
+    </div>
+    <img src="./imgs/menu1.svg" id="menuIcon" class="menus">
+    <img src="./imgs/close2.svg" id="close2" class="menus">
+    <div id="contain-form">
+        <div id="post-actions">
+            <div>
+                <img src="./imgs/close.svg" id="closeActions">
+            </div>
+            <div id="location-box-father">
+                <div id="location-box">
+                    <span>Lv 0 - </span><span class="upLoc">stored/</span>
+                </div>
+            </div>
+            <form action="/upload-data" method="post" enctype="multipart/form-data" id="uploading">
+                <div>
+                    your file will be saved in : <input type="text" value="stored/" name="location" id="finalloc">
+                </div>
+                <div>
+                    <input type="file" name="file" class="formbutton" id="fileselector">
+                </div>
+                <div>
+                    <input type="submit" value="Upload" id="uploadpost" class="formbutton">
+                </div>
+                <div id="uploadWarning">
+                    <p>Select a Destination Folder or Write the Path in the TextBox Above.</p>
+                    <p>Root Folder is "stored/".</p>
+                    <p>If the Specified Folder Does Not Exist, it Will Be Automatically Created.</p>
+                </div>
+            </form>
+            <p id="removeWarning">
+                Choose What Type of Data You Are Going To Delete :
+            </p>
+            <div id="boxes">
+                <p><input type="checkbox" id="showfiles"> File</p>
+                <p><input type="checkbox" id="showfolders"> Folder</p>
+            </div>
+            <form action="/remove-data" method="post" enctype="multipart/form-data" id="removing">
+                <p>you are removing : <label for="locDel"><div id="locDelLabel"></div></label></p>
+                <input type="text" value="" name="locationremoved" id="locDel">
+                <input type="text" value="" name="typeremoved" id="typerem">
+                <input type="submit" value="Delete" id="removepost">
+            </form>
+        </div>
+    </div>
+    <div id="footer">
+        <p>
+            <b>Stripes Server System</b> / Version : 1.1.0 
+        </p>
+        <h3>Server Infromations</h3>
+    </div>
+    <div id="container">
+    <span id ="stored1">stored/</span>
+    </div>
+    <div id="actionsback">
+    </div>
+    <div id="actions">
+        <div class="parafu" id="upload-icon-root" title="upload a file">
+            <img src="./imgs/upload.svg">
+        </div>
+        <div class="parafu" id="remove-icon-root" title="remove a file/folder">
+            <img src="./imgs/bin.svg">
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+{
+  "name": "Stripes Server System",
+  "version": "1.1.0",
+  "description": "Local Network Server Application",
+  "main": "index.js",
+  "bin" : "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Asura-Y/Linux-Universal-Server.git"
+  },
+  "author": "Fabio Cosentino (Developer) - Filippo Marrapodi(Author)",
+  "license": "GNU General Public License v3.0",
+  "bugs": {
+    "url": "https://github.com/Asura-Y/Linux-Universal-Server/issues"
+  },
+  "homepage": "https://github.com/Asura-Y/Linux-Universal-Server#readme",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "check-disk-space": "^3.3.0",
+    "directory-tree": "^3.2.2",
+    "express": "^4.18.1",
+    "express-fileupload": "^1.3.1",
+    "systeminformation": "^5.11.15"
+  },
+    "pkg": {
+    "scripts": "*.js",
+    "assets": ["./"],
+    "targets": [ "node18-linux-x64" ],
+    "outputPath": "./"
+  }
+}
