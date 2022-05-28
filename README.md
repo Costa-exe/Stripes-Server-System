@@ -77,7 +77,7 @@ now open your browser and type "0.0.0.0:3000" in the URL field to reach the serv
 
 YOUR DEVICE AND THE SERVER HAVE TO BE CONNECTED TO THE SAME INTERNET CONNECTION TO MAKE THEM COMMUNICATE.
 
-To stop the server press the keys "ctrl+c" on the terminal running the application on the server.
+To stop the connection press the keys "ctrl+c" on the terminal running the application on the server.
 
 If you close the terminal without stopping the application the connection on the specified port will stay up until a reboot or shutdown of the server.
 
