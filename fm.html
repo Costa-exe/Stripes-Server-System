@@ -13,29 +13,37 @@
     <link rel="icon" type="image/x-icon" href="./imgs/stripes-server-system.svg">
 </head>
 <body>
-    <div id="background-block">
+    <div id="backgroundBlock"></div>
+    <div id="actionsback">
     </div>
-    <img src="./imgs/menu1.svg" id="menuIcon" class="menus">
-    <img src="./imgs/close2.svg" id="close2" class="menus">
-    <div id="contain-form">
+    <div id="menubar">
+        <div>
+            <img src="./imgs/menu1.svg" id="menuIcon" class="menus" title="actions">
+        </div>
+        <div>
+            <img src="./imgs/info.svg" id="infosmenu" class="menus" title="infos">
+        </div>
+        <div>
+            <img src="./imgs/daynight.svg" id="daynight" class="menus" title="night mode">
+        </div>
+    </div>
+    <img src="./imgs/close2.svg" id="close2" class="closehover">
         <div id="post-actions">
             <div>
-                <img src="./imgs/close.svg" id="closeActions">
+                <img src="./imgs/close.svg" id="closeActions" class="closehover">
             </div>
-            <div id="location-box-father">
-                <div id="location-box">
-                    <span>Lv 0 - </span><span class="upLoc">stored/</span>
-                </div>
+             <div id="location-box">
+                 <span>Lv 0 - </span><span class="upLoc">stored/</span>
             </div>
             <form action="/upload-data" method="post" enctype="multipart/form-data" id="uploading">
                 <div>
                     your file will be saved in : <input type="text" value="stored/" name="location" id="finalloc">
                 </div>
                 <div>
-                    <input type="file" name="file" class="formbutton" id="fileselector">
+                    <input type="file" name="file" class="formbutton" id="fileselector" multiple>
                 </div>
                 <div>
-                    <input type="submit" value="Upload" id="uploadpost" class="formbutton">
+                    <input type="submit" value="Upload" id="uploadpost" class="formbutton" disabled>
                 </div>
                 <div id="uploadWarning">
                     <p>Select a Destination Folder or Write the Path in the TextBox Above.</p>
@@ -43,26 +51,71 @@
                     <p>If the Specified Folder Does Not Exist, it Will Be Automatically Created.</p>
                 </div>
             </form>
-            <p id="removeWarning">
-                Choose What Type of Data You Are Going To Delete :
-            </p>
             <div id="boxes">
+                <p class="removeWarning">
+                    Choose What Type of Data You Are Going To Delete :
+                </p>
                 <p><input type="checkbox" id="showfiles"> File</p>
                 <p><input type="checkbox" id="showfolders"> Folder</p>
             </div>
             <form action="/remove-data" method="post" enctype="multipart/form-data" id="removing">
-                <p>you are removing : <label for="locDel"><div id="locDelLabel"></div></label></p>
-                <input type="text" value="" name="locationremoved" id="locDel">
+                <p>you are removing : <div id="locDelLabel"></div></p>
+                <p id="filescounter"></p>
+                <p id="folderscounter"></p>
                 <input type="text" value="" name="typeremoved" id="typerem">
-                <input type="submit" value="Delete" id="removepost">
+                <p class="removeWarning">By pressing the "Delete" button below you will delete the selected file or folder.</p>
+                <p class="removeWarning">This operation can't be undone.</p>
+                <input type="submit" value="Delete" id="removepost" disabled>
             </form>
         </div>
+    <div id="blockformat"></div>
+    <div id="formatcontainer">
+        <div id="formatting">
+                <h3>WARNING</h3>
+                <h4>Do you Really Want to Delete all the Data?</h4>
+                <p class="formpara">By pressing "Yes" you are going to delete all the data.</p>
+                <p class="formpara">This operation can't be undone.</p>
+                <p class="formpara">Press "No" to go back.</p>
+                <form action="/format-data" method="post" enctype="multipart/form-data">
+                    <div id="choices">
+                        <input type="submit" value="Yes" id="yesbuttonhidden">
+                        <label for="yesbuttonhidden" id="topoint">
+                            <div class="buttonformat">Yes</div>
+                        </label>
+                        <div class="buttonformat" id="closeformat">
+                            No
+                        </div>
+                    </div>
+                </form>
+        </div>
     </div>
-    <div id="footer">
+    <div id="infos">
+        <img src="./imgs/close.svg" id="closeinfos" class="closehover">
+        <img src="./imgs/stripes-server-system.svg" id="SSS">
         <p>
-            <b>Stripes Server System</b> / Version : 1.1.0 
+            <h2 id="titleapp">Stripes Server System</h2>
         </p>
-        <h3>Server Infromations</h3>
+        <div id="platinfodiv">
+            <b>Platform: </b><span id="platinfo"></span>
+        </div>
+        <h3>Storage Info</h3>
+        <div id="storage">
+            <div id="storagefree"><div id="storageused"></div></div>
+            <div id="mems">
+                <div class="storageinfos">
+                    <div id="used"></div><b id="usedtext"></b><b>Used</b>
+                </div>
+                <div class="storageinfos">
+                    <div id="free"></div><b id="freetext"></b><b> Free</b>
+                </div>
+            </div>
+        </div>
+        <div id="versiondiv">
+            <b>Version: </b> 2.0.0
+        </div>
+        <div id="octocatdiv">
+            <a href="https://github.com/Asura-Y/Stripes-Server-System"><img src="./imgs/Octocat.png" title="visit the repo!"></a>
+        </div>
     </div>
     <div id="container">
     <span id ="stored1">stored/</span>
@@ -70,11 +123,14 @@
     <div id="actionsback">
     </div>
     <div id="actions">
-        <div class="parafu" id="upload-icon-root" title="upload a file">
+        <div class="parafu" id="upload-icon-root" title="Upload">
             <img src="./imgs/upload.svg">
         </div>
-        <div class="parafu" id="remove-icon-root" title="remove a file/folder">
+        <div class="parafu" id="remove-icon-root" title="Remove">
             <img src="./imgs/bin.svg">
+        </div>
+        <div id="formatdata">
+            Format Data
         </div>
     </div>
 </body>

@@ -11,7 +11,7 @@
 
 Stripes Server System is a local server with a built-in file managing system.
 It is meant to be used to exchange data through LAN within different devices.
-As version 1.1.0 is out, the application is only able to work on x64 Linux-based operation systems.
+As version 1.1.0 is out, the application is only able to work on x64 Linux-based operating systems.
 
 
 ## Technologies
@@ -73,11 +73,13 @@ you will obtain a response like this:
 ```
 Server Listening on 0.0.0.0:3000
 ```
-now open your browser and type "0.0.0.0:3000" in the URL field to reach the server and access the file manager.
+now open your browser and type "0.0.0.0:3000" in the URL field to reach the server and access the login page.
 
 YOUR DEVICE AND THE SERVER HAVE TO BE CONNECTED TO THE SAME INTERNET CONNECTION TO MAKE THEM COMMUNICATE.
 
-To stop the connection press the keys "ctrl+c" on the terminal running the application on the server.
+The default password to access the file manager is "default", if you want to change the password change the "key" value inside the file key.json.
+
+To stop the connection press the keys "ctrl+c" on the terminal running the application.
 
 If you close the terminal without stopping the application the connection on the specified port will stay up until a reboot or shutdown of the server.
 

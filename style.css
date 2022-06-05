@@ -2,27 +2,122 @@ html {
     font-family: 'Roboto', sans-serif;
 }
 
-#footer {
+#infos {
+    display: none;
     z-index: 1;
-    background-color: #ffffff;
+    background-color: #ebebeb;
     position: absolute;
-    left: 0;
-    margin-left: 3vw;
     top: 0;
+    left: 0;
     right: 0;
-    margin-top: 75vh;
-    margin-right: 5vh;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #c0bbbb;
-    border-left: 0;
-    border-bottom: 0;
-    border-right: 0;
-    padding: 3px;
+    min-height: 100vh;
+    padding-top: 50px;
+    text-align: center;
 }
 
-#boxes, #removing, #locDel {
+#loginform {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.filesremoved {
     display: none;
+}
+
+#loginformtitle {
+    margin-bottom: 50px;
+}
+
+#logpara {
+    color: #aca8a8;
+}
+
+.formelement {
+    margin-top: 20px;
+}
+
+#closeinfos {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-top: 10px;
+    margin-left: 10px;
+    height: 25px;
+    width: auto;
+    cursor: pointer;
+}
+
+#titleapp, #platinfodiv, #storage, #versiondiv {
+    margin-bottom: 50px;
+}
+
+#octocatdiv > a > img {
+    height: 80px;
+    width: auto;
+}
+
+#SSS {
+    height: 75px;
+    width: auto;
+}
+
+#storagefree {
+    border-radius: 1vh;
+    height: 15px;
+    width: 200px;
+    background-color: #4856cc;
+}
+
+#storageused {
+    border-radius: 1vh;
+    height: 100%;
+    background-color: #c7431a;
+}
+
+.storageinfos {
+    display: flex;
+    align-items: center;
+}
+
+#storage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#mems {
+    margin-left: 30px;
+}
+
+.storageinfos > b, .storageinfos > div{
+    margin: 5px;
+}
+
+#used, #free {
+    border-radius: 50%;
+    height: 10px;
+    width: 10px;
+    margin-left: 5px;
+}
+
+#used {
+    background-color: #c7431a;
+}
+
+#free {
+    background-color: #4856cc;
+}
+
+#boxes, #removing {
+    display: none;
+}
+
+#removing {
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 #locDelLabel {
@@ -38,31 +133,7 @@ html {
 }
 
 .divUpLoc {
-    padding: 5px;
-}
-
-#background-block {
-    display: none;
-    z-index: 4;
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: #000000;
-    opacity: 70%;
-}
-
-#contain-form {
-    display: none;
-    z-index: 5;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
+    padding: 15px;
 }
 
 #actions {
@@ -122,20 +193,127 @@ html {
     opacity: 70%;
 }
 
-#post-actions {
-    display: block;
+#backgroundBlock {
     position: fixed;
+    display: none;
+    z-index: 4;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000;
+    opacity: 70%;
+}
+
+#blockformat {
+    position: fixed;
+    display: none;
+    z-index: 6;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000;
+    opacity: 70%;
+}
+
+#yesbuttonhidden {
+    display: none;
+}
+
+#formatting {
+    position: absolute;
     background-color: #ffffff;
-    padding: 10px;
+    text-align: center;
+    padding: 5px;
+    margin-top: 50px;
     border-radius: 1vh;
 }
 
-#uploadWarning, #removeWarning {
+@media screen and (max-width: 400px) {
+    #formatting {
+        position: fixed;
+        border-radius: 0;
+        right: 0;
+        left: 0;
+    }
+}
+
+@media screen and (max-height: 360px) {
+    #formatting {
+        position: absolute;
+        border-radius: 0;
+        top: 0;
+        min-height: 100vh;
+        margin-top: 0;
+    }
+}
+
+.buttonformat {
+    background-color: #c7431a;
+    color: #ffffff;
+    border-radius: 1vh;
+    margin: 5px;
+    padding: 10px;
+    cursor: pointer;
+    width: 40px;
+}
+
+.buttonformat:hover {
+    background-color: #e44c1e;
+}
+
+#choices {
+    display: flex;
+    justify-content: center;
+}
+
+#valueformat {
+    display: none;
+}
+
+.formpara {
+    color: #aca8a8;
+}
+
+#formatcontainer {
+    position: absolute;
+    display: none;
+    z-index: 7;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    min-height: 100vh;
+    justify-content: center;
+}
+
+#post-actions {
+    z-index: 5;
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 100vh;
+    width: 700px;
+    background-color: #ffffff;
+}
+
+.removeWarning {
+    margin-left: 10px;
+}
+
+#post-actions > div {
+    margin: 15px;
+}
+
+#uploadWarning, .removeWarning {
     color: #aca8a8;
 }
 
 #uploading {
     display: none;
+    margin: 15px;
+    border-width: 1px;
 }
 
 .divUpLocFiles {
@@ -143,18 +321,30 @@ html {
 }
 
 #location-box {
-    height: 25vh;
+    height: 300px;
     width: 80%;
     border-style: solid;
     border-color: #000000;
     border-width: 3px;
     border-radius: 1vh;
-    padding: 3px;
+    padding: 5px;
     overflow-y: scroll;
 }
 
+@media screen and (max-width: 730px) {
+
+    #post-actions {
+        width: 100vw;
+    }
+
+    #location-box {
+        width: 85%;
+    }
+
+}
+
 #location-box-father {
-    padding-left: 15%;
+    padding: 10px;
 }
 
 #uploading > div {
@@ -168,21 +358,65 @@ html {
 #container {
     padding-top: 0;
     padding-bottom: 5vh;
-    padding-left: 45px;
-    height: 70vh;
+    padding-left: 60px;
+    height: 90vh;
     overflow-y: scroll;
     padding-right: 5vw;
 }
 
-#menuIcon {
-    position: absolute;
-    top: 0;
-    left: 0;
+.menus {
     height: 20px;
     width: auto;
-    margin-top: 10px;
-    margin-left: 10px;
     cursor: pointer;
+    margin-top: 15px;
+}
+
+.menus:hover {
+    margin-bottom: 10px;
+}
+
+#infosmenu {
+    height: 30px;
+    width: auto;
+}
+
+#formatdata {
+    color: #ffffff;
+    background-color: #c7431a;
+    border-radius: 1vh;
+    padding: 5px;
+    width: fit-content;
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    top: 0;
+    margin-top: 200px;
+}
+
+#formatdata:hover {
+    background-color: #e44c1e;
+}
+
+#daynight {
+    height: 35px;
+    width: auto;
+}
+
+#menubar {
+    position: fixed;
+    display: block;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #ebebeb;
+    width: 60px;
+    text-align: center;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#menubar::-webkit-scrollbar {
+    display: none;
 }
 
 .folder {
@@ -199,6 +433,7 @@ html {
     border-left: 0;
     border-top: 0;
     border-width: 1px;
+    padding: 3px;
 }
 
 .textfile:hover {
@@ -219,7 +454,12 @@ html {
     color: black;
 }
 
-.folderico, .folderstatus, #closeActions {
+#closeActions {
+    height: 25px;
+    width: auto;
+}
+
+.folderico, .folderstatus {
     height: 15px;
     width: auto;
 }

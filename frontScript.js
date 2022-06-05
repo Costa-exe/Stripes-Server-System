@@ -16,38 +16,39 @@
         req2.send();
         req2.onload = function () {
             const result = JSON.parse(req2.responseText);
-            let para = document.createElement("p");
-            para.appendChild(document.createTextNode(result.distro + " " + result.release + " " + result.arch));
-            document.getElementById("footer").appendChild(para);
+            document.getElementById("platinfo").appendChild(document.createTextNode(result.distro + " " + result.release + " " + result.arch));
         }
         req3.open("GET", '/ex/meminfo.json', true);
         req3.send();
         req3.onload = function () {
             const result = JSON.parse(req3.responseText);
-            let para = document.createElement("p");
+            let sizeused;
+            let sizefree;
             if (result.free >= 1000000000000) {
-                para.appendChild(document.createTextNode((result.free/1000000000000).toFixed(2) + " Tb Free in Server Storage "));
+                sizefree = (result.free/1000000000000).toFixed(2) + " Tb";
             } else if (result.free >= 1000000000) {
-                para.appendChild(document.createTextNode((result.free/1000000000).toFixed(2) + " Gb Free in Server Storage "));
+                sizefree = (result.free/1000000000).toFixed(2) + " Gb";
             } else if (result.free >= 1000000) {
-                para.appendChild(document.createTextNode((result.free/1000000).toFixed(2) + " Mb Free in Server Storage "));
+                sizefree = (result.free/1000000).toFixed(2) + " Mb";
             } else if (result.free >= 1000) {
-                para.appendChild(document.createTextNode((result.free/1000).toFixed(2) + " Kb Free in Server Storage "));
+                sizefree = (result.free/1000).toFixed(2) + " Kb";
             } else {
-                para.appendChild(document.createTextNode(result.free + " bytes Free in Server Storage "));
+                sizefree = result.free + " bytes";
             }
             if (result.size >= 1000000000000) {
-                para.appendChild(document.createTextNode("(" + (result.size/1000000000000).toFixed(2) + " Tb)"));
+                sizeused = ((result.size-result.free)/1000000000000).toFixed(2) + " Tb";
             } else if (result.size >= 1000000000) {
-                para.appendChild(document.createTextNode("(" + (result.size/1000000000).toFixed(2) + " Gb)"));
+                sizeused = ((result.size-result.free)/1000000000).toFixed(2) + " Gb";
             } else if (result.size >= 1000000) {
-                para.appendChild(document.createTextNode("(" + (result.size/1000000).toFixed(2) + " Mb)"));
+                sizeused = ((result.size-result.free)/1000000).toFixed(2) + " Mb";
             } else if (result.size >= 1000) {
-                para.appendChild(document.createTextNode("(" + (result.size/1000).toFixed(2) + " Kb)"));
+                sizeused = ((result.size-result.free)/1000).toFixed(2) + " Kb";
             } else {
-                para.appendChild(document.createTextNode("(" + result.size + " bytes)"));
+                sizeused = (result.size-result.free) + " bytes";
             }
-            document.getElementById("footer").appendChild(para);
+            document.getElementById("storageused").style.width = (((result.size-result.free) * 100)/result.size) + "%";
+            document.getElementById("usedtext").innerHTML = sizeused;
+            document.getElementById("freetext").innerHTML = sizefree;
         }
     }
 
@@ -69,13 +70,13 @@
                 div.appendChild(lvl);
                 div.appendChild(name);
                 if (file.size >= 1000000000000) {
-                    div.appendChild(document.createTextNode(" " + (file.size/1000000000000).toFixed(2) + " Tb"));
+                    div.appendChild(document.createTextNode(" (" + (file.size/1000000000000).toFixed(2) + " Tb)"));
                 } else if (file.size >= 1000000000) {
-                    div.appendChild(document.createTextNode(" " + (file.size/1000000000).toFixed(2) + " Gb"));
+                    div.appendChild(document.createTextNode(" (" + (file.size/1000000000).toFixed(2) + " Gb)"));
                 } else if (file.size >= 1000000) {
-                    div.appendChild(document.createTextNode(" " + (file.size/1000000).toFixed(2) + " Mb"));
+                    div.appendChild(document.createTextNode(" (" + (file.size/1000000).toFixed(2) + " Mb)"));
                 } else if (file.size >= 1000) {
-                    div.appendChild(document.createTextNode(" " + (file.size/1000).toFixed(2) + " Kb"));
+                    div.appendChild(document.createTextNode(" (" + (file.size/1000).toFixed(2) + " Kb)"));
                 } else {
                     div.appendChild(document.createTextNode(" (" + file.size + " bytes" + ")"));
                 }
@@ -85,21 +86,21 @@
                 z.appendChild(div);
             } else {
                 let div = document.createElement("div");
-                div.setAttribute("class", "divUpLocFiles")
+                div.setAttribute("class", "divUpLocFiles");
                 let name = document.createElement("span");
                 let nameText = document.createTextNode("- " + file.name);
                 name.appendChild(nameText);
                 name.setAttribute("id", file.path);
-                name.setAttribute("class", "upLocF")
+                name.setAttribute("class", "upLocF");
                 div.appendChild(name);
                 if (file.size >= 1000000000000) {
-                    div.appendChild(document.createTextNode(" " + (file.size/1000000000000).toFixed(2) + " Tb"));
+                    div.appendChild(document.createTextNode(" (" + (file.size/1000000000000).toFixed(2) + " Tb)"));
                 } else if (file.size >= 1000000000) {
-                    div.appendChild(document.createTextNode(" " + (file.size/1000000000).toFixed(2) + " Gb"));
+                    div.appendChild(document.createTextNode(" (" + (file.size/1000000000).toFixed(2) + " Gb)"));
                 } else if (file.size >= 1000000) {
-                    div.appendChild(document.createTextNode(" " + (file.size/1000000).toFixed(2) + " Mb"));
+                    div.appendChild(document.createTextNode(" (" + (file.size/1000000).toFixed(2) + " Mb)"));
                 } else if (file.size >= 1000) {
-                    div.appendChild(document.createTextNode(" " + (file.size/1000).toFixed(2) + " Kb"));
+                    div.appendChild(document.createTextNode(" (" + (file.size/1000).toFixed(2) + " Kb)"));
                 } else {
                     div.appendChild(document.createTextNode(" (" + file.size + " bytes" + ")"));
                 }
@@ -117,7 +118,7 @@
         const spanUpsF = document.getElementsByClassName("upLocF");
         const removeico = document.getElementById("remove-icon-root");
         const filesremove = document.getElementsByClassName("divUpLocFiles");
-
+    
         /* loader folders */
         for (let i = 0; i < foldernames.length; i++) {
             foldernames[i].onclick = function () {
@@ -135,18 +136,40 @@
                 
             };
         }
-        /* upload manager */
-        for (let i = 0; i < spanUps.length; i++) {
-            spanUps[i].onclick = function () {
-                document.getElementById("finalloc").value = spanUps[i].innerHTML;
+        for (let i = 0; i < document.getElementsByClassName("closehover").length; i++) {
+            let actual;
+            document.getElementsByClassName("closehover")[i].onmouseover = function () {
+                actual = this.getAttributeNode("src").value;
+                this.setAttribute("src", "./imgs/closehover.svg");
+            }
+            document.getElementsByClassName("closehover")[i].onmouseout = function () {
+                this.setAttribute("src", actual);
             }
         }
         /* menu */
+        document.getElementById("daynight").onmouseover = function () {
+            this.setAttribute("src", "./imgs/daynight2.svg");
+        }
+        document.getElementById("daynight").onmouseout = function () {
+            this.setAttribute("src", "./imgs/daynight.svg");
+        }
         document.getElementById("menuIcon").onmouseover = function () {
             this.setAttribute("src", "./imgs/menu2.svg");
         }
         document.getElementById("menuIcon").onmouseout = function () {
             this.setAttribute("src", "./imgs/menu1.svg");
+        }
+        document.getElementById("infosmenu").onmouseover = function () {
+            this.setAttribute("src", "./imgs/info2.svg");
+        }
+        document.getElementById("infosmenu").onmouseout = function () {
+            this.setAttribute("src", "./imgs/info.svg");
+        }
+        document.getElementById("infosmenu").onclick = function () {
+            document.getElementById("infos").style.display = 'block';
+        }
+        document.getElementById("closeinfos").onclick = function () {
+            document.getElementById("infos").style.display = 'none';
         }
         document.getElementById("menuIcon").onclick = function () {
             document.getElementById("actionsback").style.display = "flex";
@@ -160,18 +183,28 @@
         }
         /* remove */
         removeico.onclick = function () {
-            document.getElementById("background-block").style.display = "block";
-            document.getElementById("contain-form").style.display = "flex";
+            document.getElementById("backgroundBlock").style.display = "block";
+            document.getElementById("post-actions").style.display = "block";
             document.getElementById("boxes").style.display = "block";
             document.getElementById("removing").style.display = "block";
             for (let i = 0; i < filesremove.length; i++) {
                 filesremove[i].style.display = "block";
             }
         };
+        /* format */
+        document.getElementById("formatdata").onclick = function () {
+            document.getElementById("blockformat").style.display = "block";
+            document.getElementById("formatcontainer").style.display = "flex";
+        }
+        document.getElementById("closeformat").onclick = function () {
+            document.getElementById("blockformat").style.display = "none";
+            document.getElementById("formatcontainer").style.display = "none";
+        }
         /* checkboxes filter */
         document.getElementById("showfiles").onclick = function () {
             if (document.getElementById("showfiles").checked == true) {
                 document.getElementById("showfolders").checked = false;
+                document.getElementById("showfolders").disabled = true;
                 for (let i = 0; i < spanUps.length; i++) {
                     spanUps[i].style.color = '#c0bbbb';
                     spanUps[i].style.cursor = 'auto';
@@ -197,6 +230,7 @@
                 }
             }
             if ((document.getElementById("showfiles").checked == false) && (document.getElementById("showfolders").checked == false)){
+                document.getElementById("showfolders").disabled = false;
                 for (let i = 0; i < spanUps.length; i++) {
                     spanUps[i].style.color = '#000000';
                     spanUps[i].style.cursor = 'pointer';
@@ -227,13 +261,14 @@
                     
                 }
                 document.getElementById("locDelLabel").innerHTML = "";
-                document.getElementById("locDel").value = "";
                 document.getElementById("typerem").value = "";
+                document.getElementById("removepost").disabled = true;
             }
         }
         document.getElementById("showfolders").onclick = function () {
             if (document.getElementById("showfolders").checked == true) {
                 document.getElementById("showfiles").checked = false;
+                document.getElementById("showfiles").disabled = true;
                 for (let i = 0; i < spanUps.length; i++) {
                     spanUps[i].style.color = '#000000';
                     spanUps[i].style.cursor = 'pointer';
@@ -259,6 +294,7 @@
                 }
             }
             if ((document.getElementById("showfolders").checked == false) && (document.getElementById("showfiles").checked == false)){
+                document.getElementById("showfiles").disabled = false;
                 for (let i = 0; i < spanUps.length; i++) {
                     spanUps[i].style.color = '#000000';
                     spanUps[i].style.cursor = 'pointer';
@@ -289,52 +325,111 @@
                     
                 }
                 document.getElementById("locDelLabel").innerHTML = "";
-                document.getElementById("locDel").value = "";
                 document.getElementById("typerem").value = "";
+                document.getElementById("removepost").disabled = true;
                 
             }
         }
         for (let i = 0; i < spanUpsF.length; i++) {
             spanUpsF[i].onclick = function () {
                 if ((document.getElementById("showfiles").checked == true) && (document.getElementById("showfolders").checked == false)) {
-                    document.getElementById("locDelLabel").innerHTML = this.id;
-                    document.getElementById("locDel").value = this.id;
-                    document.getElementById("typerem").value = "file";
+                    if (this.dataset.visible == "true") {
+                        this.dataset.visible = "false";
+                        document.getElementById(this.id + "toEliminate").remove();
+                        document.getElementById(this.id + "-input").remove();
+                    } else {
+                        this.dataset.visible = "true";
+                        let div = document.createElement("div");
+                        let input = document.createElement("input");
+                        input.setAttribute("type", "text");
+                        input.setAttribute("name", "locationremoved");
+                        input.setAttribute("class", "filesremoved");
+                        input.setAttribute("value", this.id);
+                        input.setAttribute("id", this.id + "-input");
+                        div.setAttribute("id", this.id + "toEliminate");
+                        div.setAttribute("class", "divdel");
+                        let divtext = document.createTextNode(this.id);
+                        div.appendChild(divtext);
+                        document.getElementById("locDelLabel").appendChild(div);
+                        document.getElementById("removing").appendChild(input);
+                    }
+                    if (document.getElementsByClassName("divdel").length > 0) {
+                        document.getElementById("typerem").value = "file";
+                        document.getElementById("removepost").disabled = false;
+                    } else {
+                        document.getElementById("typerem").value = "";
+                        document.getElementById("removepost").disabled = true;
+                    }
                 }
             }
         }
         for (let i = 0; i < spanUps.length; i++) {
             spanUps[i].onclick = function () {
                 if ((document.getElementById("showfiles").checked == false) && (document.getElementById("showfolders").checked == true)) {
-                    document.getElementById("locDelLabel").innerHTML = this.innerHTML;
-                    document.getElementById("locDel").value = this.innerHTML;
-                    document.getElementById("typerem").value = "folder";
+                    if (this.dataset.visible == "true") {
+                        this.dataset.visible = "false";
+                        document.getElementById(this.innerHTML + "toEliminate").remove();
+                        document.getElementById(this.innerHTML + "-input").remove();
+                    } else {
+                        this.dataset.visible = "true";
+                        let div = document.createElement("div");
+                        div.setAttribute("id", this.innerHTML + "toEliminate");
+                        div.setAttribute("class", "divdel");
+                        let divtext = document.createTextNode(this.innerHTML);
+                        div.appendChild(divtext);
+                        document.getElementById("locDelLabel").appendChild(div);
+                        let input = document.createElement("input");
+                        input.setAttribute("type", "text");
+                        input.setAttribute("name", "locationremoved");
+                        input.setAttribute("class", "filesremoved");
+                        input.setAttribute("value", this.innerHTML);
+                        input.setAttribute("id", this.innerHTML + "-input");
+                        document.getElementById("removing").appendChild(input);
+                    }
+                    if (document.getElementsByClassName("divdel").length > 0) {
+                        document.getElementById("typerem").value = "folder";
+                        document.getElementById("removepost").disabled = false;
+                    } else {
+                        document.getElementById("typerem").value = "";
+                        document.getElementById("removepost").disabled = true;
+                    }
+                }
+                /* uploader -- do not modify */
+                if (document.getElementById("uploading").style.display == "block") {
+                    document.getElementById("finalloc").value = this.innerHTML;
                 }
             }
         }
         /* icon uploader menu */
         uploadico.onclick = function () {
-            document.getElementById("background-block").style.display = "block";
-            document.getElementById("contain-form").style.display = "flex";
+            document.getElementById("post-actions").style.display = "block";
             document.getElementById("uploading").style.display = "block";
+            document.getElementById("backgroundBlock").style.display = "block";
             document.getElementById("finalloc").value = "stored/";
         };
-        uploadbutton.onclick = function () {
-            document.getElementById("background-block").style.display = "none";
-            document.getElementById("contain-form").style.display = "none";
-            document.getElementById("uploading").style.display = "none";
-        };
+        document.getElementById("fileselector").onchange = function () {
+            if (this.files.length > 0) {
+                uploadbutton.disabled = false;
+            } else {
+                uploadbutton.disabled = true;
+            }
+        }
         /* forms button close "X" */
         document.getElementById("closeActions").onclick = function () {
-            document.getElementById("background-block").style.display = "none";
-            document.getElementById("contain-form").style.display = "none";
+            for (let i = 0; i < document.getElementsByClassName("divUpLocFiles").length; i++) {
+                document.getElementsByClassName("divUpLocFiles")[i].style.display = "none";
+            }
+            document.getElementById("showfolders").disabled = false;
+            document.getElementById("showfiles").disabled = false;
+            document.getElementById("removepost").disabled = true;
+            document.getElementById("backgroundBlock").style.display = "none";
+            document.getElementById("post-actions").style.display = "none";
             document.getElementById("uploading").style.display = "none";
             document.getElementById("boxes").style.display = "none";
             document.getElementById("removing").style.display = "none";
             document.getElementById("showfolders").checked = false;
             document.getElementById("showfiles").checked = false;
             document.getElementById("locDelLabel").innerHTML = "";
-                    document.getElementById("locDel").value = "";
             for (let i = 0; i < filesremove.length; i++) {
                 filesremove[i].style.display = "none";
             }
