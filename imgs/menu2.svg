@@ -1,12 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
 
-                  <!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
-                  <!-- Created with Inkscape (http://www.inkscape.org/) -->
-                  
-                  <svg width="48.917645mm" height="36.241886mm" viewBox="0 0 48.917645 36.241886" version="1.1" id="svg5" inkscape:version="1.1 (c68e22c387, 2021-05-23)" sodipodi:docname="menu.svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
-                    <sodipodi:namedview id="namedview7" pagecolor="#ffffff" bordercolor="#999999" borderopacity="1" inkscape:pageshadow="0" inkscape:pageopacity="0" inkscape:pagecheckerboard="true" inkscape:document-units="mm" showgrid="false" fit-margin-top="0" fit-margin-left="0" fit-margin-right="0" fit-margin-bottom="0" inkscape:zoom="0.75722503" inkscape:cx="-108.29013" inkscape:cy="200.07263" inkscape:window-width="1920" inkscape:window-height="1009" inkscape:window-x="-8" inkscape:window-y="-8" inkscape:window-maximized="1" inkscape:current-layer="layer1"></sodipodi:namedview>
-                    <defs id="defs2"></defs>
-                    <g inkscape:label="Livello 1" inkscape:groupmode="layer" id="layer1" transform="translate(-62.544704,-58.012451)">
-                      <path id="rect1197" style="color: rgb(0, 0, 0); fill: rgb(199, 67, 26); stroke-width: 1.179; stroke-linecap: round; stroke-linejoin: round; paint-order: fill markers;" d="m 64.72853,84.47081 h 44.54999 c 1.20984,0 2.18383,0.973986 2.18383,2.183826 v 5.415877 c 0,1.20984 -0.97399,2.183826 -2.18383,2.183826 H 64.72853 c -1.209839,0 -2.183826,-0.973986 -2.183826,-2.183826 v -5.415877 c 0,-1.20984 0.973987,-2.183826 2.183826,-2.183826 z m 0,-13.229179 h 44.54999 c 1.20984,0 2.18383,0.973986 2.18383,2.183825 v 5.415878 c 0,1.20984 -0.97399,2.183826 -2.18383,2.183826 H 64.72853 c -1.209839,0 -2.183826,-0.973986 -2.183826,-2.183826 v -5.415878 c 0,-1.209839 0.973987,-2.183825 2.183826,-2.183825 z m 0,-13.22918 h 44.54999 c 1.20984,0 2.18383,0.973986 2.18383,2.183826 v 5.415878 c 0,1.209839 -0.97399,2.183825 -2.18383,2.183825 H 64.72853 c -1.209839,0 -2.183826,-0.973986 -2.183826,-2.183825 v -5.415878 c 0,-1.20984 0.973987,-2.183826 2.183826,-2.183826 z"></path>
-                    </g>
-                  </svg>
-                  
+<svg
+   width="48.202263mm"
+   height="48.202267mm"
+   viewBox="0 0 48.202263 48.202267"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2 (dc2aeda, 2022-05-15)"
+   sodipodi:docname="menu2.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="true"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.74653479"
+     inkscape:cx="162.0822"
+     inkscape:cy="257.85804"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Livello 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-57.299046,-52.076851)">
+    <rect
+       style="fill:#c7431a;stroke-width:2.43999;fill-opacity:1"
+       id="rect236"
+       width="21.743908"
+       height="21.743908"
+       x="57.299046"
+       y="52.076851"
+       ry="5.7343283" />
+    <rect
+       style="fill:#c7431a;stroke-width:2.43999;fill-opacity:1"
+       id="rect236-3"
+       width="21.743908"
+       height="21.743908"
+       x="83.757401"
+       y="78.53521"
+       ry="5.7343283" />
+    <rect
+       style="fill:#c7431a;stroke-width:2.43999;fill-opacity:1"
+       id="rect236-3-6"
+       width="21.743908"
+       height="21.743908"
+       x="57.299046"
+       y="78.53521"
+       ry="5.7343283" />
+    <rect
+       style="fill:#c7431a;stroke-width:2.43999;fill-opacity:1"
+       id="rect236-3-6-7"
+       width="21.743908"
+       height="21.743908"
+       x="83.757401"
+       y="52.076851"
+       ry="5.7343283" />
+  </g>
+</svg>

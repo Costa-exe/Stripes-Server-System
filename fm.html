@@ -18,19 +18,32 @@
     </div>
     <div id="menubar">
         <div>
-            <img src="./imgs/menu1.svg" id="menuIcon" class="menus" title="actions">
+            <img src="./imgs/menu1.svg" id="menuIcon" class="menus" title="Actions">
         </div>
         <div>
-            <img src="./imgs/info.svg" id="infosmenu" class="menus" title="infos">
+            <img src="./imgs/info.svg" id="infosmenu" class="menus" title="Infos">
         </div>
         <div>
-            <img src="./imgs/daynight.svg" id="daynight" class="menus" title="night mode">
+            <img src="./imgs/log1.svg" id="log" class="menus" title="LOG">
+        </div>
+        <div>
+            <form action="/logout" method="post">
+                <input type="submit" id="logoutbutton">
+                <label for="logoutbutton"><img src="./imgs/logout1.svg" id="logout" class="menus" title="Logout"></label>
+            </form>
         </div>
     </div>
-    <img src="./imgs/close2.svg" id="close2" class="closehover">
+    <div id="close2-cont"><img src="./imgs/close2.svg" id="close2"></div>
         <div id="post-actions">
+            <div id="upload-screen">
+                <div class="lds-default"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                <h1 id="title-temp">Uploading, Please Wait</h1>
+                <p class="upload-screen-warning">Uploading time changes according to the size of the files</p>
+                <p class="upload-screen-warning">For larger files this operation can take several minutes</p>
+                <p class="upload-screen-warning">Please do not refresh</p>
+            </div>
             <div>
-                <img src="./imgs/close.svg" id="closeActions" class="closehover">
+                <img src="./imgs/close.svg" id="closeActions">
             </div>
              <div id="location-box">
                  <span>Lv 0 - </span><span class="upLoc">stored/</span>
@@ -67,8 +80,53 @@
                 <p class="removeWarning">This operation can't be undone.</p>
                 <input type="submit" value="Delete" id="removepost" disabled>
             </form>
+            <form action="/rename-data" method="post" enctype="multipart/form-data" id="renaming">
+                <p class="renameWarning">Choose the data you want to rename</p>
+                <input type="text" value="" id="pathToRename" name="renamedata">
+                <p>You are renaming :</p>
+                <div id="innerRename"></div>
+                <p>From :</p>
+                <input type="text" value="" id="namerem" disabled>
+                <p>To :</p>
+                <p class="renameWarning">Do not include the extension (ex. ".zip", ".png") in the field below, it will be automatically added later</p>
+                <input type="text" value="" name="renamedData" id="nameRename" placeholder="write here the new name" disabled>
+                <input type="submit" value="Rename" id="renameButton" disabled>
+            </form>
+            <p id="CheckToCopyPathPara"><input type="checkbox" id="CheckToCopyPath" disabled> Select Path</p>
+            <form action="/copy-data" method="post" enctype="multipart/form-data" id="copydata">
+                <p class="copyWarning">Select the files or folders you want to copy then click on the checkbox to select the destination path</p>
+                <p>Selected :</p>
+                <div id="copyList"></div>
+                <p>Copy to :</p>
+                <p class="copyWarning">Specify in which folder you are going to locate the copied file/foler by clicking on a path in the box above, if you specify a path that doesn't exist it will be automatically created</p>
+                <input type="text" id="pathcopy" name="copypath" value="stored/" disabled>
+                <input type="submit" value="Copy" id="copybutton" disabled>
+            </form>
+            <form action="/zip-data" method="post" enctype="multipart/form-data" id="zipping">
+                <p class="zipWarning">Select the Files or Folders you are going to compress in a zip file</p>
+                <p class="zipWarning">The generated zip folder will be saved in the root folder of the server (stored/)</p>
+                <p class="zipWarning">You will not be able to zip a single file larger than 2Gb</p>
+                <p class="zipWarning">By leaving empty the "Name" field, your file will be saved as "my-zipped-files"</p>
+                <p>Selected :</p>
+                <div id="zipList"></div>
+                <p class="zipWarning">Do not include the ".zip" extension in the field below</p>
+                <p>Name : <input type="text" value="" id="zipnamefinal" name="finalzipname" placeholder="specify a name for the zip file here" disabled></p>
+                <input type="submit" value="Zip" id="zipbutton" disabled>
+            </form>
+            <p id="CheckToMovePathPara"><input type="checkbox" id="CheckToMovePath" disabled> Select Path</p>
+            <form action="/move-data" method="post" enctype="multipart/form-data" id="moving">
+                <p class="moveWarning">Select the Files or Folders you want to move then click on the checkbox to select the destination path</p>
+                <p class="moveWarning">if you move a file in its same root directory the original file will be replaced by a renamed copy</p>
+                <p>Selected :</p>
+                <div id="moveList"></div>
+                <p>Move To :</p>
+                <p class="moveWarning">Specify in which folder you are going to move the file/foler by clicking on a path in the box above, if you specify a path that doesn't exist it will be automatically created</p>
+                <input type="text" value="stored/" id="pathmove" name="movepath" disabled>
+                <input type="submit" value="Move" id="movebutton" disabled>
+            </form>
         </div>
     <div id="blockformat"></div>
+    <div id="logcontents"><img id="backlog" src="./imgs/close.svg"><div id="logs"></div></div>
     <div id="formatcontainer">
         <div id="formatting">
                 <h3>WARNING</h3>
@@ -90,7 +148,8 @@
         </div>
     </div>
     <div id="infos">
-        <img src="./imgs/close.svg" id="closeinfos" class="closehover">
+        <img src="./imgs/close.svg" id="closeinfos">
+        <div>
         <img src="./imgs/stripes-server-system.svg" id="SSS">
         <p>
             <h2 id="titleapp">Stripes Server System</h2>
@@ -111,10 +170,11 @@
             </div>
         </div>
         <div id="versiondiv">
-            <b>Version: </b> 2.0.0
+            <b>Version: </b> 3.0.0
         </div>
         <div id="octocatdiv">
             <a href="https://github.com/Asura-Y/Stripes-Server-System"><img src="./imgs/Octocat.png" title="visit the repo!"></a>
+        </div>
         </div>
     </div>
     <div id="container">
@@ -123,11 +183,27 @@
     <div id="actionsback">
     </div>
     <div id="actions">
-        <div class="parafu" id="upload-icon-root" title="Upload">
-            <img src="./imgs/upload.svg">
+        <div>
+            <div class="parafu" id="upload-icon-root" title="Upload">
+                <img src="./imgs/upload.svg">
+            </div>
+            <div class="parafu" id="remove-icon-root" title="Remove">
+                <img src="./imgs/bin.svg">
+            </div>
+            <div class="parafu" id="move-icon-root" title="Move">
+                <img src="./imgs/move.svg">
+            </div>
         </div>
-        <div class="parafu" id="remove-icon-root" title="Remove">
-            <img src="./imgs/bin.svg">
+        <div>
+            <div class="parafu" id="copy-icon-root" title="Copy">
+                <img src="./imgs/copy.svg">
+            </div>
+            <div class="parafu" id="rename-icon-root" title="Rename">
+                <img src="./imgs/rename.svg">
+            </div>
+            <div class="parafu" id="zip-icon-root" title="Zip">
+                <img src="./imgs/zip.svg">
+            </div>
         </div>
         <div id="formatdata">
             Format Data

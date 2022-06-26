@@ -11,8 +11,146 @@ html {
     left: 0;
     right: 0;
     min-height: 100vh;
-    padding-top: 50px;
+    padding-top: 20px;
     text-align: center;
+}
+
+#logcontents {
+    display: none;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    min-height: 100vh;
+    padding-top: 20px;
+    padding-bottom: 50px;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.spanforlog {
+    color: #aca8a8;
+}
+
+#logoutbutton {
+    display: none;
+}
+
+#upload-screen {
+    text-align: center;
+}
+
+.upload-screen-warning {
+    color: #aca8a8;
+}
+
+#upload-screen {
+    display: none;
+}
+
+.lds-default {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  .lds-default div {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #000000;
+    border-radius: 50%;
+    animation: lds-default 1.2s linear infinite;
+  }
+  .lds-default div:nth-child(1) {
+    animation-delay: 0s;
+    top: 37px;
+    left: 66px;
+  }
+  .lds-default div:nth-child(2) {
+    animation-delay: -0.1s;
+    top: 22px;
+    left: 62px;
+  }
+  .lds-default div:nth-child(3) {
+    animation-delay: -0.2s;
+    top: 11px;
+    left: 52px;
+  }
+  .lds-default div:nth-child(4) {
+    animation-delay: -0.3s;
+    top: 7px;
+    left: 37px;
+  }
+  .lds-default div:nth-child(5) {
+    animation-delay: -0.4s;
+    top: 11px;
+    left: 22px;
+  }
+  .lds-default div:nth-child(6) {
+    animation-delay: -0.5s;
+    top: 22px;
+    left: 11px;
+  }
+  .lds-default div:nth-child(7) {
+    animation-delay: -0.6s;
+    top: 37px;
+    left: 7px;
+  }
+  .lds-default div:nth-child(8) {
+    animation-delay: -0.7s;
+    top: 52px;
+    left: 11px;
+  }
+  .lds-default div:nth-child(9) {
+    animation-delay: -0.8s;
+    top: 62px;
+    left: 22px;
+  }
+  .lds-default div:nth-child(10) {
+    animation-delay: -0.9s;
+    top: 66px;
+    left: 37px;
+  }
+  .lds-default div:nth-child(11) {
+    animation-delay: -1s;
+    top: 62px;
+    left: 52px;
+  }
+  .lds-default div:nth-child(12) {
+    animation-delay: -1.1s;
+    top: 52px;
+    left: 62px;
+  }
+  @keyframes lds-default {
+    0%, 20%, 80%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.5);
+    }
+  }
+
+#moving, #CheckToMovePathPara {
+    display: none;
+    margin-left: 15px;
+    margin-right: 10px;
+}
+
+#CheckToCopyPathPara {
+    display: none;
+    margin-left: 15px;
+}
+
+#zipping {
+    display: none;
+    margin-left: 15px;
+    margin-right: 10px;
+}
+
+.filestozip {
+    display: none;
 }
 
 #loginform {
@@ -21,6 +159,12 @@ html {
     left: 0;
     right: 0;
     text-align: center;
+}
+
+#copydata {
+    display: none;
+    margin-left: 15px;
+    margin-right: 10px;
 }
 
 .filesremoved {
@@ -40,14 +184,37 @@ html {
 }
 
 #closeinfos {
-    position: absolute;
-    left: 0;
-    top: 0;
-    margin-top: 10px;
-    margin-left: 10px;
     height: 25px;
     width: auto;
     cursor: pointer;
+    margin-right: 350px;
+    margin-left: 5px;
+    border-color: #000000;
+    border-style: solid;
+    border-width: 3px;
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    padding-bottom: 5px;
+}
+
+#closeinfos:hover, #closeActions:hover, #close2:hover, #backlog:hover {
+    border-color: #c7431a;
+}
+
+#backlog {
+    height: 25px;
+    width: auto;
+    cursor: pointer;
+    margin-right: 600px;
+    border-color: #000000;
+    border-style: solid;
+    border-width: 3px;
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    padding-bottom: 5px;
+    margin-left: 5px;
 }
 
 #titleapp, #platinfodiv, #storage, #versiondiv {
@@ -115,9 +282,53 @@ html {
     display: none;
 }
 
+#innerRename {
+    height: 20px;
+    min-width: 150px;
+    border-style: solid;
+    color: #ffffff;
+    background-color: #c0bbbb;
+    border-radius: 1vh;
+    border-color: #c0bbbb;
+    font-size: 15px;
+    padding: 3px;
+}
+
+.filestomove {
+    display: none;
+}
+
+#copyList, #zipList, #moveList {
+    min-height: 20px;
+    min-width: 150px;
+    border-style: solid;
+    color: #ffffff;
+    background-color: #c0bbbb;
+    border-radius: 1vh;
+    border-color: #c0bbbb;
+    font-size: 15px;
+    padding: 3px;
+}
+
 #removing {
-    margin-left: 10px;
+    margin-left: 15px;
     margin-right: 10px;
+}
+
+.filestocopy {
+    display: none;
+}
+
+.renameWarning {
+    color: #aca8a8;
+}
+
+.zipWarning {
+    color: #aca8a8;
+}
+
+.copyWarning {
+    color: #aca8a8;
 }
 
 #locDelLabel {
@@ -143,21 +354,49 @@ html {
     left: 0;
     top: 0;
     right: 0;
-    margin-top: 50px;
+    margin-top: 80px;
     justify-content: center;
 }
 
-#close2 {
+#close2-cont{
     display: none;
     z-index: 3;
     position: absolute;
     top: 0;
     left: 0;
+    right: 0;
+    padding-top: 8px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+#logWarning {
+    color: #c0bbbb;
+}
+
+#close2 {
     height: 25px;
     width: auto;
-    margin-top: 10px;
-    margin-left: 10px;
     cursor: pointer;
+    border-color: #ffffff;
+    border-style: solid;
+    border-width: 3px;
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    padding-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 250px;
+}
+
+@media screen and (max-width:280px) {
+    #close2 {
+        margin-right: 0;
+    }
+
+    #close2-cont {
+        justify-content: left;
+    }
 }
 
 .parafu {
@@ -167,10 +406,10 @@ html {
     margin: 15px;
     cursor: pointer;
     padding-bottom: 3px;
-    border-radius: 50%;
+    border-radius: 10%;
     background-color: #4856cc;
-    height: 40px;
-    width: 45px;
+    height: 50px;
+    width: 55px;
 }
 
 .parafu:hover {
@@ -302,6 +541,10 @@ html {
     margin-left: 10px;
 }
 
+.moveWarning {
+    color: #aca8a8;
+}
+
 #post-actions > div {
     margin: 15px;
 }
@@ -318,6 +561,7 @@ html {
 
 .divUpLocFiles {
     display: none;
+    padding-left: 15px;
 }
 
 #location-box {
@@ -371,11 +615,21 @@ html {
     margin-top: 15px;
 }
 
+#pathToRename {
+    display: none;
+}
+
+#renaming {
+    display: none;
+    margin-left: 15px;
+    margin-right: 10px;
+}
+
 .menus:hover {
     margin-bottom: 10px;
 }
 
-#infosmenu {
+#infosmenu, #guideico {
     height: 30px;
     width: auto;
 }
@@ -390,16 +644,21 @@ html {
     display: block;
     position: absolute;
     top: 0;
-    margin-top: 200px;
+    margin-top: 300px;
 }
 
 #formatdata:hover {
     background-color: #e44c1e;
 }
 
-#daynight {
+#logout {
     height: 35px;
     width: auto;
+}
+
+#log {
+    height: 35px;
+    width: 40px;
 }
 
 #menubar {
@@ -457,6 +716,13 @@ html {
 #closeActions {
     height: 25px;
     width: auto;
+    border-color: #000000;
+    border-style: solid;
+    border-width: 3px;
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    padding-bottom: 5px;
 }
 
 .folderico, .folderstatus {
@@ -464,12 +730,12 @@ html {
     width: auto;
 }
 
-#upload-icon-root > img, #remove-icon-root > img {
-    height: 25px;
+#upload-icon-root > img, #remove-icon-root > img, #move-icon-root > img, #copy-icon-root > img, #zip-icon-root > img, #rename-icon-root > img {
+    height: 30px;
     width: auto;
 }
 
-#upload-icon-root, #closeActions, #remove-icon-root {
+#upload-icon-root, #closeActions, #remove-icon-root, #move-icon-root, #copy-icon-root, #zip-icon-root, #rename-icon-root {
     cursor: pointer;
 }
 
