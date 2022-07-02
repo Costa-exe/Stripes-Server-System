@@ -6,12 +6,13 @@
 * [Technologies](#technologies)
 * [Setting Up](#setting-up)
 * [How To Launch](#how-to-launch)
+* [Functionalities](#functionalities)
 
 ## About The Project
 
 Stripes Server System is a local server with a built-in file managing system.
 It is meant to be used to exchange data through LAN within different devices.
-As version 3.0.0 is out, the application is only able to work on x64 Linux-based operating systems.
+As version 3.1.0 is out, the application is only able to work on x64 Linux-based operating systems.
 
 THIS APPLICATION IS MEANT TO RUN ON YOUR HOME PRIVATE INTERNET CONNECTION USING YOUR PRIVATE LOCAL IPV4.
 
@@ -86,7 +87,7 @@ There are 2 ways to access the file manager:
     1) You can use the guest password just to download and navigate the server storage (default password "guest").
     2) You can use the admin password to execute all the possible operations on the server (default password "admin").
 
-To change the passwords open the "key.json" file and change them as you like, for example if you to change only the admin password in "Hello" yo should see something like this : 
+To change the passwords open the "key.json" file and change them as you like, for example if you to change only the admin password to "Hello" yo should see something like this : 
 
 ```
 {
@@ -99,4 +100,12 @@ To stop the connection press the keys "ctrl+c" on the terminal running the appli
 
 If you close the terminal without stopping the application the connection on the specified port will stay up until a reboot or shutdown of the server.
 
-Usually you can also start the conection by pressing twice on run.sh, if you have a graphic desktop enviroment on your server, and choose to run it through terminal or not. Be carefull to run it on terminal or you won't be able to close the connection without a shutdown or reboot of the server. 
+Usually you can also start the conection by pressing twice on run.sh, if you have a graphic desktop enviroment on your server, and choose to run it through terminal or not. Be carefull to run it on terminal or you won't be able to close the connection without a shutdown or reboot of the server.
+
+## Functionalities
+
+- Navigate and download the file on the server.
+- Upload, Remove, Rename, Move and Copy.
+- Log with operations history.
+- Login as admin or guest.
+- Infos about OS and disk space on the server machine. 

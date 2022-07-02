@@ -89,6 +89,7 @@
                 <input type="text" value="" id="namerem" disabled>
                 <p>To :</p>
                 <p class="renameWarning">Do not include the extension (ex. ".zip", ".png") in the field below, it will be automatically added later</p>
+                <p class="renameWarning">The use of "/" is not allowed in the field below, it will be changed in "-"</p>
                 <input type="text" value="" name="renamedData" id="nameRename" placeholder="write here the new name" disabled>
                 <input type="submit" value="Rename" id="renameButton" disabled>
             </form>
@@ -107,6 +108,7 @@
                 <p class="zipWarning">The generated zip folder will be saved in the root folder of the server (stored/)</p>
                 <p class="zipWarning">You will not be able to zip a single file larger than 2Gb</p>
                 <p class="zipWarning">By leaving empty the "Name" field, your file will be saved as "my-zipped-files"</p>
+                <p class="zipWarning">The use of "/" is not allowed in the "Name" field below, it will be changed in "-"</p>
                 <p>Selected :</p>
                 <div id="zipList"></div>
                 <p class="zipWarning">Do not include the ".zip" extension in the field below</p>
@@ -170,7 +172,7 @@
             </div>
         </div>
         <div id="versiondiv">
-            <b>Version: </b> 3.0.0
+            <b>Version: </b> 3.1.0
         </div>
         <div id="octocatdiv">
             <a href="https://github.com/Asura-Y/Stripes-Server-System"><img src="./imgs/Octocat.png" title="visit the repo!"></a>

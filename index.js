@@ -21,6 +21,19 @@ app.use(upload({
 
 const perms = {};
 const exts = [".tar.gz", ".tar.xz", ".tar.z", ".tar.7z", ".tar.bz2", ".tar.lz", ".tar.lz4", ".tar.lzma", ".tar.lzo", ".tar.zst", ".tar.br", ".tar.bz", ".tar.lpaq"];
+var filesToDownalod = [];
+
+function nameFiles(x) {
+    x.forEach(element => {
+        if (element.type == "file") {
+            filesToDownalod.push(element.path);
+        } else {
+            nameFiles(element.children);
+        }
+    });
+}
+
+nameFiles(dirTree(storage, {attributes:['size', 'type', 'extension']}).children);
 
     function scanning () {
         const files = dirTree(storage, {attributes:['size', 'type', 'extension']});
@@ -201,6 +214,15 @@ app.get('/ex/sysinfo.json', (req,res) => {
 app.get('/ex/log.json', (req,res) => {
     res.sendFile('./log.json', {root: './ex'});
 });
+for (let i = 0; i < filesToDownalod.length; i++) {
+    let finalget = encodeURI(filesToDownalod[i]);
+    app.get(`/${finalget}`, (req,res) => {
+        let rootFile = filesToDownalod[i].split("/");
+        rootFile.pop();
+        res.sendFile(`./${filesToDownalod[i].split("/")[filesToDownalod[i].split("/").length - 1]}`, {root: `./${rootFile.join("/")}`});
+    })
+}
+
 
 function extname (l) {
     for (let i = 0; i < exts.length; i++) {
@@ -870,6 +892,9 @@ app.post('/rename-data', (req, res) => {
         if (req.body.renamedData == "") {
             console.log("ERROR: no name specified");
         } else {
+            if (req.body.renamedData.match(/\//)) {
+                req.body.renamedData = req.body.renamedData.replaceAll("/", "-");
+            }
             if (req.body.renamedata.match(/^stored\//)) {
                 if (req.body.renamedata == "stored/") {
                     console.log("NOT ALLOWED");
@@ -1133,6 +1158,9 @@ app.post('/zip-data', (req, res) => {
         }
         if (req.body.finalzipname == "") {
             req.body.finalzipname = "my-zipped-files";
+        }
+        if (req.body.finalzipname.match(/\//)) {
+            req.body.finalzipname = req.body.finalzipname.replaceAll("/", "-");
         }
         if (fs.existsSync('./stored/' + req.body.finalzipname + '.zip')) {
             console.log("Zip file already exists, renaming...");
